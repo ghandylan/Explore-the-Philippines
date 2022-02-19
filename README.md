@@ -1,0 +1,1 @@
+A simple website showcasing the different tourist destinations in the Philippines
