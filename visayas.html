@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Visayas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <style>
+            @font-face {
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/raleway-v22-latin/raleway-v22-latin-regular.eot'); /* IE9 Compat Modes */
+            src: local(''),
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.woff') format('woff'), /* Modern Browsers */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+            }
+            .topnav {
+                background-color: #e07e5d;
+                overflow: hidden;
+            }
+
+            .fixed {
+                position: fixed;
+                top: 0;
+                width: 100%;     
+            }
+
+            .topnav a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                padding: 14px 18px;
+                text-decoration: none;
+            }
+
+            .dropdown {
+                float: left;    
+            }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .topnav a:hover, .dropdown:hover .dropbtn {
+                background-color:#0074E1;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 100px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #0074E1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                float: left;
+                text-decoration: none;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 8px;
+                border-color: #e0e0e0;
+                border-style: solid;
+            }
+
+            .button:hover {
+                border-color: #fb9e32;
+                color: white;
+            }
+
+            section {
+                width: 80%; text-align: center; margin: 0 auto; line-height: 38px;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            div.gallery:hover {
+            border: 1px solid #777;
+            }
+
+            div.gallery img {
+            width: 100%;
+            height: auto;
+            }
+
+            div.desc {
+            padding: 15px;
+            text-align: center;
+            }
+
+            * {
+            box-sizing: border-box;
+            }
+
+            .responsive {
+            float: left;
+            width: 33.33%;
+            }
+
+            @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+            }
+
+            @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+            }
+
+            .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+
+            .header {
+            text-align: center;
+            padding: 32px;
+            }
+
+            .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+            }
+
+            /* Create four equal columns that sits next to each other */
+            .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+            }
+
+            .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+            }
+
+            /* Responsive layout - makes a two column-layout instead of four columns */
+            @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+            }
+
+            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+            }
+
+            .topbutton {
+                border: none;
+                color: green;
+                padding: 15px 100px;
+                
+                text-decoration: none;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 8px;
+                border-color: #e0e0e0;
+                border-style: solid;
+     
+            }
+            .topbutton:hover {
+                border-color: #fb9e32;
+                color: purple;
+            }
+            
+        </style>
+        
+    </head>
+    <body style="margin: 0; font-family: Raleway;" id="home">
+        <header>
+            <div id="home" style="font-family: Raleway; overflow: hidden; background-image: url(images/visayas/visayas-bg.jpg); padding: 60px 100px 310px; text-align: center; margin: 0 auto;">
+                <h1 href="#default" style="color:#fff700; font-size: 80px; padding-top: 190px; line-height: 10px; text-align: left;"><a class="titleh" href="#map" onMouseOver="this.style.color='#0074E1'"
+                    onMouseOut="this.style.color='#fff700'" style="color: #fff700; text-decoration: none;"></a><strong style="color:yellow; font: weight 100px;">Visayas</strong></h1>  
+                <h3 style="color: white; text-align: left;">The middle group of islands.</h3>
+                <br>
+                <br>
+                <a href="#body" class="button" style="text-align: left;">Explore</a>
+        </header>
+
+        <div class="fixed">
+            <div class="topnav">
+                
+                <a href="home.html" style="padding-left: 110px;">Home</a>
+
+                 <div class="dropdown">
+                    <button class="dropbtn">Explore<b></b></button>
+                    <div class="dropdown-content">
+                        <a href="luzon.html">Luzon</a>
+                        <a href="visayas.html">Visayas</a>
+                        <a href="mindanao.html">Mindanao</a>
+                    </div>
+              </div>  
+              <a href="travelnow.html">Travel Now</a>
+            </div>
+          </div>
+
+        <div class="responsive" id="body">
+            <div class="gallery">
+              <a href="#intramuros">
+                <img src="images/visayas/boracay.jpg" alt="Cinque Terre" width="600" height="400">
+              </a>
+              <div class="desc">Boracay</div>
+            </div>
+          </div>
+          
+          <div class="responsive">
+            <div class="gallery">
+              <a href="#kayangan">
+                <img src="images/visayas/chocolate-hills.jpg" alt="Northern Lights" width="600" height="400">
+              </a>
+              <div class="desc">Chocolate Hills</div>
+            </div>
+          </div>
+          
+          <div class="responsive">
+            <div class="gallery">
+              <a href="#banaue">
+                <img src="images/visayas/cambugahay-falls.jpg" alt="Mountains" width="600" height="400">
+              </a>
+              <div class="desc">Cambugahay Falls</div>
+            </div>
+          </div>
+          
+          <div class="clearfix"></div>
+
+          <br id="intramuros">
+
+          <section>
+              <h2 style="text-align: left;">Boracay</h2>
+              <div style="float: right; padding-left: 30px;">
+                <a>
+                    <img src="images/visayas/boracay2.jpg" style="height: auto; width: 350px; border-radius: 8px;">
+                    <div><small><i>Boracay Island</i></small></div>        
+                </a>
+            </div>
+              <p style="text-align: left; width: 65%;">
+                Boracay Island, one of the top beaches in the Philippines, is blessed with a long stretch of powdery white sand beach (called White Beach), crystal clear and azure waters, a stunning sunset, and more. The island doesn’t fall short on adventures and activities for people of all ages.
+                Tourists from all over the Philippines can once again explore Boracay's clear waters and gorgeous stretches of white sand. But with the threat of COVID-19 pandemic, the Inter-Agency Task Force on Emerging Infectious Diseases (IATF-EID) has released a set of guidelines and tourist requirements to follow and consider before you jump at the chance to book that ticket to Boracay.  
+              </p>
+              
+              <br>
+              <div style="text-align: center;">
+                <iframe width="650" height="330" src="https://www.youtube.com/embed/b7LSsKsJGHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <br>
+
+              <div class="row"> 
+                <div class="column">
+                  <img src="images/visayas/boracay3.jpg" style="width:100%">
+                  <img src="images/visayas/boracay4.jpg" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="images/visayas/boracay5.jpg" style="width:100%">
+                </div>  
+                <div class="column">
+                  <img src="images/visayas/boracay6.jpg" style="width:100%">
+                  <img src="images/visayas/boracay7.jpg" style="width:100%">
+              
+                </div>
+                <div class="column">
+                  <img src="images/visayas/boracay8.jpg" style="width:100%">
+                  <img src="images/visayas/boracay9.jpg" style="width:100%">
+                </div>
+              </div>
+          </section>
+          
+          <br>
+          <br>
+          <br id="kayangan">
+
+          <section>
+              <h2 style="text-align: left;">Chocolate Hills</h2>
+              <div style="float: right; padding-left: 30px;">
+                <a>
+                    <img src="images/visayas/chocolate-hills2.jpg" style="height: auto; width: 350px; border-radius: 8px;">
+                    <div><small><i>Chocolate Hills in Bohol</i></small></div>        
+                </a>
+            </div>
+              <p style="text-align: left; width: 65%">
+                The Chocolate Hills are a group of unusually shaped hills located in the middle of the island of Bohol in Philippines. This extraordinary landscape is unique to this small island.
+
+                It is unknown how many chocolate hills there are. It is known that at the bare minimum there are 1268 hills but some estimates put this number as high as 1776.
+
+                The hills are not huge; the highest one barely reaches 120 meters in height. Even so, most hills are between 30 and 50 meters. The conical Chocolate hills are scattered within a fifty square kilometer area.
+              </p>
+
+              <br>
+              <br>
+
+              <div style="text-align: center;">
+                <iframe width="650" height="330" src="https://www.youtube.com/embed/pVS8hk6wY4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <br>
+
+              <div class="row"> 
+                <div class="column">
+                  <img src="images/visayas/chocolate-hills3.jpg" style="width:100%">
+                  <img src="images/visayas/chocolate-hills4.jpg" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="images/visayas/chocolate-hills5.jpg" style="width:100%">
+                </div>  
+                <div class="column">
+                  <img src="images/visayas/chocolate-hills6.jpg" style="width:100%">
+                  <img src="images/visayas/chocolate-hills7.jpg" style="width:100%">
+              
+                </div>
+                <div class="column">
+                  <img src="images/visayas/chocolate-hills8.jpg" style="width:100%">
+                  <img src="images/visayas/chocolate-hills9.jpg" style="width:100%">
+                </div>
+              </div>
+          </section>
+
+          <br>
+          <br>
+          <br id="banaue">
+
+          <section>
+              <h2 style="text-align: left;">Cambugahay Falls</h2>
+              <div style="float: right; padding-left: 30px;">
+                <a>
+                    <img src="images/visayas/cambugahay-falls2.jpg" style="height: auto; width: 350px; border-radius: 8px;">
+                    <div><small><i>Cambugahay falls in Siquijor</i></small></div>        
+                </a>
+            </div>
+              <p style="text-align: left; width: 65%">
+                Cambugahay Falls is not known for its daring height nor width, instead it has been recognized by many travelers for its pure clean water and refreshing sight. Before the Cambugahay Falls into the basin to which it is located today, it has to travel three rising stages. One in about ten feet increment based on the lowest pool and then another 3 kilometers down right before emptying in the Bay of Lazi. Another great thing about the Cambugahay Falls is that it is super clean, even in the land area. Some tourist attractions are trashed by visitors, not in Cambugahay Falls. The area is well maintained by locals and is absolutely free!
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div style="text-align: center;">
+                    <iframe width="650" height="330" src="https://www.youtube.com/embed/gal2HhEzdsE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+
+ 
+              </p>
+
+              <br>
+
+              <div class="row"> 
+                <div class="column">
+                  <img src="images/visayas/cambugahay-falls3.jpg" style="width:100%">
+                  <img src="images/visayas/cambugahay-falls4.jpg" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="images/visayas/cambugahay-falls5.jpg" style="width:100%">
+                </div>  
+                <div class="column">
+                  <img src="images/visayas/cambugahay-falls6.jpg" style="width:100%">
+                  <img src="images/visayas/cambugahay-falls7.jpg" style="width:100%">
+              
+                </div>
+                <div class="column">
+                  <img src="images/visayas/cambugahay-falls8.jpg" style="width:100%">
+                  <img src="images/visayas/cambugahay-falls9.jpg" style="width:100%">
+                </div>
+              </div>
+          </section>
+          <br>
+          <br>
+          <div style="text-align: center; padding-bottom: 30px;">
+            <a href="#home" class="topbutton" style="text-align: center;">Back to top</a>
+          </div>
+    </body>
+</html>
+

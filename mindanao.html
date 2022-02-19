@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mindanao</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <style>
+            @font-face {
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/raleway-v22-latin/raleway-v22-latin-regular.eot'); /* IE9 Compat Modes */
+            src: local(''),
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.woff') format('woff'), /* Modern Browsers */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+            }
+            .topnav {
+                background-color: #743a6d;
+                overflow: hidden;
+            }
+
+            .fixed {
+                position: fixed;
+                top: 0;
+                width: 100%;     
+            }
+
+            .topnav a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                padding: 14px 18px;
+                text-decoration: none;
+            }
+
+            .dropdown {
+                float: left;    
+            }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .topnav a:hover, .dropdown:hover .dropbtn {
+                background-color:#0074E1;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 100px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #0074E1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                float: left;
+                text-decoration: none;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 8px;
+                border-color: #e0e0e0;
+                border-style: solid;
+            }
+
+            .button:hover {
+                border-color: #fb9e32;
+                color: white;
+            }
+
+            section {
+                width: 80%; text-align: center; margin: 0 auto; line-height: 38px;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            div.gallery:hover {
+            border: 1px solid #777;
+            }
+
+            div.gallery img {
+            width: 100%;
+            height: auto;
+            }
+
+            div.desc {
+            padding: 15px;
+            text-align: center;
+            }
+
+            * {
+            box-sizing: border-box;
+            }
+
+            .responsive {
+            float: left;
+            width: 33.33%;
+            }
+
+            @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+            }
+
+            @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+            }
+
+            .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+
+            .header {
+            text-align: center;
+            padding: 32px;
+            }
+
+            .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+            }
+
+            /* Create four equal columns that sits next to each other */
+            .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+            }
+
+            .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+            }
+
+            /* Responsive layout - makes a two column-layout instead of four columns */
+            @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+            }
+
+            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+            }
+
+            .topbutton {
+                border: none;
+                color: green;
+                padding: 15px 100px;
+                
+                text-decoration: none;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 8px;
+                border-color: #e0e0e0;
+                border-style: solid;
+     
+            }
+            .topbutton:hover {
+                border-color: #fb9e32;
+                color: purple;
+            }
+            
+        </style>
+        
+    </head>
+    <body style="margin: 0; font-family: Raleway;" id="home">
+        <header>
+            <div id="home" style="font-family: Raleway; overflow: hidden; background-image: url(images/mindanao/mindanao-bg.jpg); padding: 60px 100px 310px; text-align: center; margin: 0 auto;">
+                <h1 href="#default" style="color:#fff700; font-size: 80px; padding-top: 190px; line-height: 10px; text-align: left;"><a class="titleh" href="#map" onMouseOver="this.style.color='#0074E1'"
+                    onMouseOut="this.style.color='#fff700'" style="color: #fff700; text-decoration: none;"></a><strong style="color:yellow; font: weight 100px;">Mindanao</strong></h1>  
+                <h3 style="color: white; text-align: left;">The breadbasket of the Philippines.</h3>
+                <br>
+                <br>
+                <a href="#body" class="button" style="text-align: left;">Explore</a>
+        </header>
+
+        <div class="fixed">
+            <div class="topnav">
+                
+                <a href="home.html" style="padding-left: 110px;">Home</a>
+
+                 <div class="dropdown">
+                    <button class="dropbtn">Explore<b></b></button>
+                    <div class="dropdown-content">
+                        <a href="luzon.html">Luzon</a>
+                        <a href="visayas.html">Visayas</a>
+                        <a href="mindanao.html">Mindanao</a>
+                    </div>
+              </div>  
+              <a href="travelnow.html">Travel Now</a>
+            </div>
+          </div>
+
+        <div class="responsive" id="body">
+            <div class="gallery">
+              <a href="#intramuros">
+                <img src="images/mindanao/cloudnine.jpg" alt="Cinque Terre" width="600" height="400">
+              </a>
+              <div class="desc">Cloud 9</div>
+            </div>
+          </div>
+          
+          <div class="responsive">
+            <div class="gallery">
+              <a href="#kayangan">
+                <img src="images/mindanao/rockpools.jpg" alt="Northern Lights" width="600" height="400">
+              </a>
+              <div class="desc">Magpupungko Rock Pools</div>
+            </div>
+          </div>
+          
+          <div class="responsive">
+            <div class="gallery">
+              <a href="#banaue">
+                <img src="images/mindanao/river.jpg" alt="Mountains" width="600" height="400">
+              </a>
+              <div class="desc">Hinatuan Enchanted River</div>
+            </div>
+          </div>
+          
+          <div class="clearfix"></div>
+
+          <br id="intramuros">
+
+          <section>
+              <h2 style="text-align: left;">Cloud 9 - Siargao</h2>
+              <div style="float: right; padding-left: 30px;">
+                <a>
+                    <img src="images/mindanao/cloudnine2.jpg" style="height: auto; width: 350px; border-radius: 8px;">
+                    <div><small><i>Cloud 9, a popular surfing spot in Siargao</i></small></div>        
+                </a>
+            </div>
+              <p style="text-align: left; width: 65%;">
+                Cloud 9 Siargao is rated as the best surf break in the Philippines and it’s also one of the most popular spots to hang out on Siargao Island. Whether you’re a die-hard surfer or not, a visit to Cloud 9 will definitely make your day, especially around sunrise or sunset.
+                Siargao is known as the Surfing Capital of the Philippines. This small island in the southern part of the Philippines has been attracting surfers from around the world and those who want to go on a honeymoon in the Philippines for years.
+                The high number of both small and big reef breaks that can be found in the area, including the world-class waves in Cloud 9, have earned the island recognition as one of the best surfing destinations in the world. 
+              </p>
+              
+              <br>
+              <div style="text-align: center;">
+                <iframe width="650" height="330" src="https://www.youtube.com/embed/l6K6FgR2xB8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <br>
+
+              <div class="row"> 
+                <div class="column">
+                  <img src="images/mindanao/cloudnine3.jpg" style="width:100%">
+                  <img src="images/mindanao/cloudnine4.jpg" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="images/mindanao/cloudnine5.jpg" style="width:100%">
+                </div>  
+                <div class="column">
+                  <img src="images/mindanao/cloudnine6.jpg" style="width:100%">
+                  <img src="images/mindanao/cloudnine7.jpg" style="width:100%">
+              
+                </div>
+                <div class="column">
+                  <img src="images/mindanao/cloudnine8.jpg" style="width:100%">
+                  <img src="images/mindanao/cloudnine9.jpg" style="width:100%">
+                </div>
+              </div>
+          </section>
+          
+          <br>
+          <br>
+          <br id="kayangan">
+
+          <section>
+              <h2 style="text-align: left;">Magpupungko Rock Pools</h2>
+              <div style="float: right; padding-left: 30px;">
+                <a>
+                    <img src="images/mindanao/rockpools2.jpg" style="height: auto; width: 350px; border-radius: 8px;">
+                    <div><small><i>Magpupungko Rock pools is one of the best tourist spot of Siargao Island.</i></small></div>        
+                </a>
+            </div>
+              <p style="text-align: left; width: 65%">
+                Magpupungko is a natural rock pool, best visited on low tide, that can be found on the east coast of Siargao Island. It’s one of the most popular tourist spots that can’t be missed on your list of places to visit in Siargao.
+                It is a natural fascinating sea water pool and best during low tide. The area is protected with the rock formations that makes big and breath-taking crystal clear swimming pool. Right in front of it is a strong big waves  from the pacific ocean that is been safely trapped.
+                This place is called “Magpupungko” Rock pools ( pungko- a local term of squat or sitting down) because of its amazing gigantic rock that is like squatting on each other. It is really wonderful how God made them all.
+              </p>
+
+              <br>
+              <br>
+
+              <div style="text-align: center;">
+                <iframe width="650" height="330" src="https://www.youtube.com/embed/lc0kqjiodKM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <br>
+
+              <div class="row"> 
+                <div class="column">
+                  <img src="images/mindanao/rockpools3.jpg" style="width:100%">
+                  <img src="images/mindanao/rockpools4.jpg" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="images/mindanao/rockpools5.jpg" style="width:100%">
+                </div>  
+                <div class="column">
+                  <img src="images/mindanao/rockpools6.webp" style="width:100%">
+                  <img src="images/mindanao/rockpools7.jpeg" style="width:100%">
+              
+                </div>
+                <div class="column">
+                  <img src="images/mindanao/rockpools8.jpg" style="width:100%">
+                  <img src="images/mindanao/rockpools9.jpg" style="width:100%">
+                </div>
+              </div>
+          </section>
+
+          <br>
+          <br>
+          <br id="banaue">
+
+          <section>
+              <h2 style="text-align: left;">Hinatuan Enchanted River</h2>
+              <div style="float: right; padding-left: 30px;">
+                <a>
+                    <img src="images/mindanao/river2.jpg" style="height: auto; width: 350px; border-radius: 8px;">
+                    <div><small><i>The Enchanted River</i></small></div>        
+                </a>
+            </div>
+              <p style="text-align: left; width: 65%">
+                The Hinatuan Enchanted River in Mindanao, Philippines, is a flawless saltwater river that flows into the Pacific Ocean. It is around 80-feet deep, and just barely long enough to be considered a river, yet the flow attracts visitors from around the world who want to experience the beautiful waters that locals have long thought to be miraculous. Its moniker “Enchanted River” came from a poem by Modesto Farolan.
+
+                In fact, no one is sure exactly where the saltwater emanates from, although the prevailing theory involves an underground cave system that spits the river out, free of any dirt or silt which would usually cloud such a stream. Whatever the explanation, the clean waters are a natural wonder unlike any other. 
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div style="text-align: center;">
+                    <iframe width="650" height="330" src="https://www.youtube.com/embed/LhphNPUsBdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+
+ 
+              </p>
+
+              <br>
+
+              <div class="row"> 
+                <div class="column">
+                  <img src="images/mindanao/river3.jpg" style="width:100%">
+                  <img src="images/mindanao/river4.jpg" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="images/mindanao/river5.jpg" style="width:100%">
+                </div>  
+                <div class="column">
+                  <img src="images/mindanao/river6.jpg" style="width:100%">
+                  <img src="images/mindanao/river7.jpg" style="width:100%">
+              
+                </div>
+                <div class="column">
+                  <img src="images/mindanao/river8.jpg" style="width:100%">
+                  <img src="images/mindanao/river9.jpg" style="width:100%">
+                </div>
+              </div>
+          </section>
+          <br>
+          <br>
+          <div style="text-align: center; padding-bottom: 30px;">
+            <a href="#home" class="topbutton" style="text-align: center;">Back to top</a>
+          </div>
+    </body>
+</html>
+

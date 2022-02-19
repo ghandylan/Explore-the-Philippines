@@ -1,0 +1,78 @@
+.page-numbers {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 10px 2px 0 0;
+    border: 1px solid #eee;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 600;
+    color: #006ba1;
+}
+
+.page-numbers.current,
+a.page-numbers:hover {
+    background: #f9f9f9;
+}
+.wp-caption {
+text-align: center;
+padding-top: 10px;
+margin: 10px;
+-moz-border-radius: 3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+}
+/* .wp-caption img {
+margin: 0;
+padding: 0;
+border: 0 none;
+} */
+.wp-caption p.wp-caption-text {
+size: 10px;
+line-height: 15px;
+color: #2375bb;
+padding: 8px;
+margin: 0;
+}
+
+
+.backtoproject a {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: #2375bb;
+     height: 40px;
+      width: auto;
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      right: 42px;
+      line-height: 40px;
+      padding: 0 20px;text-decoration: none; color:#fff
+    }
+    
+    .backtoproject a .icon__arrowBack {
+      transform: rotate(
+        -180deg);
+        fill:#fff;
+    }
+    
+    
+    .backtoproject a:hover .icon__arrowBack{
+      
+    }
+    
+@media (min-width:1200px){
+    
+    .backtoproject a {
+    
+         height: 60px;
+    
+          right: 62px;
+          line-height: 60px;
+        
+        }
+        
+}

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Travel Now</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <style>
+            @font-face {
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            src: url('fonts/raleway-v22-latin/raleway-v22-latin-regular.eot'); /* IE9 Compat Modes */
+            src: local(''),
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.woff') format('woff'), /* Modern Browsers */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+                url('fonts/raleway-v22-latin/raleway-v22-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+            }
+            .topnav {
+                background-color: #fb9e32;
+                overflow: hidden;
+            }
+
+            .fixed {
+                position: fixed;
+                top: 0;
+                width: 100%;     
+            }
+
+            .topnav a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                padding: 14px 18px;
+                text-decoration: none;
+            }
+
+            .dropdown {
+                float: left;    
+            }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .topnav a:hover, .dropdown:hover .dropbtn {
+                background-color:#0074E1;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 100px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #0074E1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                float: left;
+                text-decoration: none;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 8px;
+                border-color: #e0e0e0;
+                border-style: solid;
+            }
+
+            .button:hover {
+                border-color: #fb9e32;
+                color: white;
+            }
+
+            section {
+                width: 80%; text-align: center; margin: 0 auto; line-height: 38px;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            div.gallery:hover {
+            border: 1px solid #777;
+            }
+
+            div.gallery img {
+            width: 100%;
+            height: auto;
+            }
+
+            div.desc {
+            padding: 15px;
+            text-align: center;
+            }
+
+            * {
+            box-sizing: border-box;
+            }
+
+            .responsive {
+            float: left;
+            width: 33.33%;
+            }
+
+            @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+            }
+
+            @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+            }
+
+            .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+
+            .header {
+            text-align: center;
+            padding: 32px;
+            }
+
+            .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+            }
+
+            /* Create four equal columns that sits next to each other */
+            .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+            }
+
+            .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+            }
+
+            /* Responsive layout - makes a two column-layout instead of four columns */
+            @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+            }
+
+            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+            }
+
+            .topbutton {
+                border: none;
+                color: green;
+                padding: 15px 100px;
+                
+                text-decoration: none;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 8px;
+                border-color: #e0e0e0;
+                border-style: solid;
+     
+            }
+            .topbutton:hover {
+                border-color: #fb9e32;
+                color: purple;
+            }
+
+            label {
+                display: inline-block;
+                width: 200px;
+            }
+            fieldset {
+                background:floralwhite;
+                display: inline-block;
+                width: 80%;
+                border-radius: 30px;
+                border-width: 5px;
+            }
+            legend {
+                padding: 20px 0;
+                font-size: 20px;
+            }
+
+            input {
+                height: 25px;
+                margin: 0 auto;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+            select {
+                width: 150px;
+                height: 25px;
+                margin: 0 auto;
+                border: 1px solid black;
+                border-radius: 10px;
+            }
+
+            td {
+                padding-top: 30px;
+            }
+            .parent {
+                text-align: center;
+            }
+        </style>
+        
+    </head>
+    <body style="margin: 0; font-family: Raleway;" id="home">
+
+        <header>
+            <div id="home" style="font-family: Raleway; overflow: hidden; background-image: url(images/travelnow.jpg); padding: 60px 100px 310px; text-align: center; margin: 0 auto;">
+                <h1 href="#default" style="color:#fff700; font-size: 80px; padding-top: 190px; line-height: 10px; text-align: left;"><a class="titleh" href="#map" onMouseOver="this.style.color='#0074E1'"
+                    onMouseOut="this.style.color='#fff700'" style="color: #fff700; text-decoration: none;"></a><strong style="color:yellow; font: weight 100px;">Book a trip now</strong></h1>  
+                <h3 style="color: white; text-align: left;">Experience Philippines.</h3>
+                <br>
+                <br>
+                <a href="#body" class="button" style="text-align: left;">Book a trip</a>
+        </header>
+
+        <div class="fixed">
+            <div class="topnav">
+                
+                <a href="home.html" style="padding-left: 110px;">Home</a>
+
+                 <div class="dropdown">
+                    <button class="dropbtn">Explore<b></b></button>
+                    <div class="dropdown-content">
+                        <a href="luzon.html">Luzon</a>
+                        <a href="visayas.html">Visayas</a>
+                        <a href="mindanao.html">Mindanao</a>
+                    </div>
+              </div>  
+              <a href="travelnow.html">Travel Now</a>
+            </div>
+        </div>
+
+        <br id="body"> 
+
+        <section style="text-align: justify;">
+            <h2>Important Notice</h2>
+            <p>
+                In the interest of everyone’s health and well-being, the Philippines Department of Tourism (DOT) ensures that tourism stakeholders comply with the protocols and precautionary measures set by the World Health Organization (WHO) and the Department of Health (DOH). The DOT also actively promotes simple but effective habits that the public can adapt to help contain the spread of Covid-19.
+
+                In recognition of the DOT’s efforts to align with global standards for health, safety and hygiene, we have been awarded the use of the Safe Travels Stamp from the World Travel and Tourism Council (WTTC).
+
+                Created in response to the Covid-19 pandemic, the WTTC’s Safe Travels Stamp enables tourists to recognize destinations that meet international standards for health and safety, allowing visitors to confidently enjoy safe travels.
+            </p>
+        </section>
+
+        <div class="parent">
+
+            <fieldset style="padding-bottom: 80px;">
+                <legend><h1>Personal Information:</h1></legend>
+                <div style="padding-left: 50px; line-height: 30px;">
+                    <div>
+                        <label for="name">Last Name:</label>
+                        <input type="text" id="name">
+                      </div>
+                      <div>
+                          <label for="name">First Name:</label>
+                          <input type="text" id="name">
+                      </div>
+                      <div>
+                          <label for="name">Street Address:</label>
+                          <input type="text" id="name">
+                      </div>
+                      <div>
+                          <label for="name">City:</label>
+                          <input type="text" id="name">
+                      </div>
+                      <div>
+                          <label for="name">State:</label>
+                          <input type="text" id="name">
+                        </div>
+                      <div>
+                      <div>
+                          <label for="name">ZIP:</label>
+                          <input type="number" id="name">
+                      </div>
+                          <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email">
+                      </div>
+                      <div>
+                        <label for="date">Contact Number:</label>
+                        <input type="tel" id="date">
+                      </div>
+                </div>
+            </fieldset>
+    
+            <br>
+    
+            <fieldset style="padding-bottom: 80px;">
+                <legend><h1>Travel Details</h1></legend>
+                <div style="padding-left: 50px; line-height: 30px;">
+                    <div>
+                        <label for="name">Destination</label>
+                        <select>
+                            <option>Select</option>
+                            <option>Intramuros</option>
+                            <option>Kayangan Lake</option>
+                            <option>Banaue Rice Terraces</option>
+                            <option>Boracay</option>
+                            <option>Chocolate Hills</option>
+                            <option>Cambugahay Falls</option>
+                            <option>Cloud 9</option>
+                            <option>Magpupungko Rock Pools</option>
+                            <option>Hinatuan Enchanted River</option>
+                        </select>
+                      </div>
+                      <div class="date">
+                          <label for="name">Checkin Date</label>
+                          <input type="date" id="name">
+                      </div>
+                      <div class="date">
+                          <label for="name">Checkout Date</label>
+                          <input type="date" id="name">
+                      </div>
+                      <div>
+                          <label for="name">Credit Card Type</label>
+                          <select>
+                            <option>Select</option>
+                            <option>Visa</option>
+                            <option>Mastercard</option>
+                            <option>American Express</option>
+                        </select>
+                      </div>
+                      <div>
+                          <label for="name">Credit Card Number</label>
+                          <input type="text" id="name">
+                        </div>
+                      <div>
+                      <div>
+                          <label for="name">CVC</label>
+                          <input type="text" id="name">
+                      </div>
+                          <div>
+                        <label for="email">Expiration Date</label>
+                        <input type="date" id="email">
+                      </div>
+                </div>
+            </fieldset>
+    
+            <br>
+    
+            <fieldset style="padding-bottom: 100px;">
+                <legend><h1>COVID Health Declation Form</h1></legend>
+                <table>
+                    <tbody>
+                        <div>
+                            <tr>
+                                <td>1. Are you experiencing or did you have any of the following in the last 14 days? </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">a. Fever <em><strong>(Lagnat)</strong</em></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">b. Coughs and/or Colds <strong><em>(Ubo at/o Sipon)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">c. Body Pains <strong><em>(Pananakit ng katawan)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">d. Sore Throat <strong><em>(Pananakit o pamamaga ng /alamunan)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">e. Fatigue/Tiredness <strong><em>(Pagkapagod)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">f. Headache <strong><em>(Pananakit ng ulo)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">g. Diarrhea <strong><em>(Pagtatae)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">h. Loss of taste or smell <strong><em>(Nawalan ng panlasa o pang-amoy)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px;">i. Difficulty of breathing <strong><em>(Pagkahapo o hirap sa pag hinga)</em></strong></td>
+                                <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                                <td>Yes</td>
+                                <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                                <td>No</td>
+                            </tr>
+    
+                        </div>
+                        
+                    <br>
+                    <tr>
+                        <td><p>2. Have you had face-to-face contact with a probable or confirmed COVID-19 case within
+                            1 meter and for more than 15 minutes for the past 14 days? <strong>(May nakasalamuha ka ba
+                                na maaaring o kumpirmadong pasyente na may COVID-19 mula sa isang metrong
+                                distansya or mas malapit pa at tumagal ng mahigit 15 minuto sa nakalipas na 14
+                                araw?)</strong></p></td>
+                        <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                        <td>Yes</td>
+                        <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><p ">3. Have you provided direct care for a patient with probable or confirmed COVID-19 case
+                            without using proper "Personal Protective Equipment (PPE)" for the past 14 days? <strong>(Nag-alaga ka ba ng maaring o kumpirmadong pasyente na may COVID-19 ng hindi
+                                nakasuot ng tamang PPE (Personal Protective Equipment) sa nakalipas na 14 araw?)</strong></p></td>
+                        <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                        <td>Yes</td>
+                        <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><p >4. Have you traveled outside the Philippines in the last 14 days? <strong>(lkaw ba ay nagbiyahe
+                            sa labas ng Pilipinas sa nakalipas na 14 na araw?)</strong>
+                            </p></td>
+                        <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                        <td>Yes</td>
+                        <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><p>5. Have you traveled outside the current city/municipality where you reside? <strong>(lkaw ba ay
+                            nagbiyahe sa labas ng iyong lungsod/munisipyo?)</strong> If yes, specify which city/municipality
+                            you went to <strong>(Sabihin kung saan)</strong>
+                            </p></td>
+                        <td><input type="radio" name="addServer" id="serverYes" value="1"></td>
+                        <td>Yes</td>
+                        <td><input type="radio" name="addServer" id="serverNo" value="1"></td>
+                        <td>No</td>
+                    </tr>
+                    <tr>   
+                        <td style="padding-left: 100px;">
+                            <div>
+                                <label for="name">If yes, please specify</label>
+                                <input type="text" id="name">
+                            </div>
+                        </td>                 
+                    </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+        </div>
+       
+
+        <br>
+        <br>
+        
+        <div style="text-align: center; padding-bottom: 30px;">
+            <a href="#home" class="topbutton" style="text-align: center;">Submit</a>
+        </div>
+    </body>
+</html>
+
