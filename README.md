@@ -1,7 +1,6 @@
 # Explore the Philippines
 A simple website showcasing the different tourist destinations in the Philippines
 
-&nbsp;
 
 ###### Home
 ![Alt text](md_images/home_page.png?raw= "Title")
